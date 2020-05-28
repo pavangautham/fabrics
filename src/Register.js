@@ -6,12 +6,17 @@ import TextField from '@material-ui/core/TextField';
 //import FormControlLabel from '@material-ui/core/FormControlLabel';
 //import Checkbox from '@material-ui/core/Checkbox';
 //import Link from '@material-ui/core/Link';
+import {Link} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 //import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Welcome from './welcome';
 
 /* function Copyright() {
   return (
@@ -27,11 +32,20 @@ import Container from '@material-ui/core/Container';
 } */
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
+  /* image: {
+    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  }, */
+  root: {    
+    minWidth: 275,
+    marginTop: 30,
+  },
+  paper: {    
+    marginTop: theme.spacing(2),
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
+    alignItems: 'center',    
   },
   avatar: {
     margin: theme.spacing(1),
@@ -50,8 +64,13 @@ export default function Register() {
   const classes = useStyles();
 
   return (
+    // <div className={classes.image}>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
+      
+      <Card className={classes.root}>
+      <CardContent>
+      
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -114,6 +133,7 @@ export default function Register() {
               />
             </Grid> */}
           </Grid>
+          <Link to="/Welcome" style={{ textDecoration: 'none' }}>
           <Button
             type="submit"
             fullWidth
@@ -123,6 +143,7 @@ export default function Register() {
           >
             Sign Up
           </Button>
+          </Link>
           {/* <Grid container justify="flex-end">
             <Grid item>
               <Link href="#" variant="body2">
@@ -132,9 +153,14 @@ export default function Register() {
           </Grid> */}
         </form>
       </div>
+      
       {/* <Box mt={5}>
         <Copyright />
       </Box> */}
+      </CardContent>
+      </Card>
+      
     </Container>
+    // </div>
   );
 }

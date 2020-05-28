@@ -13,32 +13,7 @@ import Welcome from './welcome';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <ul>
-        <li>
-          <Link to="/App">Login</Link>
-        </li>
-        <li>
-          <Link to="/Register">Register</Link>
-        </li>
-        <li>
-          <Link to="/welcome">Welcome</Link>
-        </li>
-      </ul>
-      
-      <Switch>
-        <Route path="/App">
-          <App />
-        </Route>
-        <Route path="/Register">
-          <Register />
-        </Route>
-        <Route path="/welcome">
-          <Welcome />
-        </Route>
-      </Switch>
-      
-    </Router>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
