@@ -11,6 +11,9 @@ import App from './App';
 import Register from './Register';
 import Welcome from './welcome';
 
+import 'antd/dist/antd.css';
+import './index.css';
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

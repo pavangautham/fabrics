@@ -133,7 +133,7 @@ export default function Register() {
               />
             </Grid> */}
           </Grid>
-          <Link to="/Welcome" style={{ textDecoration: 'none' }}>
+          <Link to="/wash" style={{ textDecoration: 'none' }}>
           <Button
             type="submit"
             fullWidth

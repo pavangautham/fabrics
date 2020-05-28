@@ -98,7 +98,7 @@ export default function Register() {
                 />
                 </Grid>                        
             </Grid>
-          <Link to="/Register" style={{ textDecoration: 'none' }}>
+          <Link to="/register" style={{ textDecoration: 'none' }}>
           <Button
             type="submit"
             fullWidth
