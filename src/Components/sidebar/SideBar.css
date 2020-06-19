@@ -1,0 +1,78 @@
+.ant-layout-sider-trigger {
+    /* background: blue; */
+    background-color: #055da0;
+}
+
+.logo{
+    margin-top: 10px;
+}
+/* .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #055da0;
+    color: #ffffff;
+} */
+
+
+.ant-menu-item a::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    content: '';
+}
+
+.ant-menu-item a {
+    color: rgba(0, 0, 0, 0.65) !important;
+}
+
+.ant-menu-submenu-title {
+    color: #000;
+}
+
+.ant-menu-dark .ant-menu-inline.ant-menu-sub {
+    background: #fff;
+}
+
+.ant-menu-submenu-title:hover {
+    color:#000 !important;
+}
+
+.ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow {
+    color:#000 !important;
+}
+
+.ant-menu-dark .ant-menu-item:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-item-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-open > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-title:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-item:hover > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-item-active > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-active > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-open > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-title:hover > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-item:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-item-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-open > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-title:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-item:hover > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-item-active > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-active > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-open > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-title:hover > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before {
+    background: #000;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-submenu-title .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow::after, .ant-menu.ant-menu-dark .ant-menu-submenu-title .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow::before {
+    background: #000;
+}
+
+.ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub {
+    color: rgba(255, 255, 255, 0.65);
+    background: white;
+}
+
+.ant-menu-submenu .ant-menu-submenu-vertical .ant-menu-submenu-open .ant-menu-submenu-active{
+    color: #fff;
+}
+
+#profile .ant-form-item-label{
+    text-align:left;
+}
+
+#feedback .ant-form-item-label{
+    text-align:left;
+}
+/* 
+.ant-menu-item:hover > span > a {
+    
+    color: pink !important;
+    
+}
+
+.ant-menu-item a, .ant-tooltip-open a, .ant-menu-item-active a, .ant-menu-item-selected a{
+    color: #fff !important;
+} */

@@ -9,14 +9,15 @@ import TextField from '@material-ui/core/TextField';
 import {Link} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 //import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Welcome from './welcome';
+import Register from './Register';
+//import Welcome from './welcome';
 
 const useStyles = makeStyles((theme) => ({
   image: {
@@ -39,8 +40,9 @@ const useStyles = makeStyles((theme) => ({
   },
   rootContent: {
     width: '400px',
-    height: '400px',
-    background: 'rgba(255, 255, 255, 0.8)',
+    height: '350px',
+    background: 'rgba(255, 255, 255, 0.6)',
+    //background: 'rgba(0, 0, 0, 0.5)',
     padding: '20px'
   },
   paper: {    
@@ -65,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Register() {
+export default function Login() {
   const classes = useStyles();
 
   return (
@@ -78,7 +80,7 @@ export default function Register() {
       <div className={classes.rootContent}>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          <PermIdentityIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign In
@@ -94,11 +96,11 @@ export default function Register() {
                     label="Mobile Number"
                     name="phone"
                     autoComplete="phone"
-                    autoFocus
+                    autoFocus                    
                 />
                 </Grid>                        
             </Grid>
-          <Link to="/register" style={{ textDecoration: 'none' }}>
+          <Link to="/Register" style={{ textDecoration: 'none' }}>
           <Button
             type="submit"
             fullWidth

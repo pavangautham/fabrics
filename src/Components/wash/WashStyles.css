@@ -1,0 +1,49 @@
+
+/* .ant-radio-input {
+    background-color: black;
+  } */
+
+.ant-radio-checked .ant-radio-inner {
+border-color: #000000;
+}
+
+/* .ant-radio-input::selection {
+    color: #fff;
+    background: #000000;
+} */
+
+.ant-radio-inner::after {
+    background-color: #000000;
+}
+
+.ant-radio-checked::after {
+    border: 1px solid #000000;
+}
+
+span.ant-radio .ant-radio-checked {
+    border: #000000;
+}
+
+input.ant-radio-input {
+    border: #000000;
+}
+
+.ant-checkbox-inner {
+    background: #ffffff;
+    color: #000000;
+    border: #000000;
+}
+.ant-checkbox-input {
+    border: #000000;
+}
+span.ant-checkbox-inner {
+    border: 1px solid #000000;
+}
+.ant-checkbox-checked::after {
+    border: 1px solid #000000;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #000000;
+    border-color: #000000;
+}
