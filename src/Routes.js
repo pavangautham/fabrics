@@ -13,7 +13,7 @@ const Routes = ({ match }) => {
     console.log(match)
     return (
         <Switch>
-            <Redirect exact from={`${match.url}`} to={`${match.url}/wash`} />
+            <Redirect exact from={`${match.url}`} to={`${match.url}wash`} />
             <Route path={`${match.url}wash`} component={Wash} />
             <Route path={`${match.url}profile`} component={Profile} />
             <Route path={`${match.url}orders`} component={Orders} />

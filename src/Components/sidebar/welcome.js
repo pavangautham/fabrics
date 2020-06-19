@@ -25,15 +25,39 @@ const Welcome = () => {
   const [collapsed, setCollapsed] = useState(false)
 
   const onCollapse = () => {
-        setCollapsed(!collapsed)
-    }
+    setCollapsed(!collapsed)
+  }
+
+  const loc = window.location.pathname.substr(1);
+  let selectedKey;
+  if(loc === 'wash') {
+    selectedKey = '1'
+  } else if(loc === 'profile') {
+    selectedKey = '2'
+  } else if(loc === 'orders') {
+    selectedKey = '3'
+  } else if(loc === 'payment') {
+    selectedKey = '4'
+  } else if(loc === 'offers') {
+    selectedKey = '5'
+  } else if(loc === 'aboutUs') {
+    selectedKey = '6'
+  } else if(loc === 'location') {
+    selectedKey = '7'
+  } else if(loc === 'tnc') {
+    selectedKey = '8'
+  } else if(loc === 'privacy') {
+    selectedKey = '9'
+  } else if(loc === 'feedback') {
+    selectedKey = '10'
+  }
 
   return (
     
     <Sider className="ant-layout" collapsible collapsed={collapsed} onCollapse={onCollapse} style={{ backgroundColor: '#F7F6F7' }}>
-      <div className="logo" style={{ marginLeft: 7 }}> <img src="/images/fab1.png" /> </div>
+      <div className="logo" style={{ marginLeft: 7 }}> <img src="/images/fab1.png" height="50" width={collapsed ? '65' : '185'} /> </div>
       {/* <div className="logo" style={{  color: '#000', textAlign: 'center', padding: 19 }}>Welcome Pavan</div> */}
-      <Menu /* className="ant-menu-item" */ style={{ backgroundColor: '#F7F6F7' }} theme="light" defaultSelectedKeys={['1']} mode="inline">
+      <Menu /* className="ant-menu-item" */ style={{ backgroundColor: '#F7F6F7' }} theme="light" defaultSelectedKeys={[selectedKey]} mode="inline">
       
         <Menu.Item style={{ color: '#000' }} key="1" icon={<ClockCircleOutlined />}>
           <Link to="/wash" style={{  }}>Schedule Wash</Link>              
@@ -52,16 +76,16 @@ const Welcome = () => {
           <Link to="/offers" style={{  }}>Offers</Link>
         </Menu.Item>            
         <SubMenu style={{  }} key="sub1" icon={<InfoCircleOutlined />} title="Our Info">
-          <Menu.Item style={{ color:'#000' }} key="8" icon={<InfoCircleOutlined />} ><Link>About Us</Link></Menu.Item>
-          <Menu.Item style={{ color:'#000' }} key="9" icon={<HeatMapOutlined />} ><Link>Locate Us</Link></Menu.Item>
-          <Menu.Item style={{ color:'#000' }} key="10" icon={<UnorderedListOutlined />} ><Link to="/tnc">Terms & Conditions</Link></Menu.Item>
-          <Menu.Item style={{ color:'#000' }} key="11" icon={<ExclamationCircleOutlined />} ><Link to="/privacy">Privacy Policy</Link></Menu.Item>
+          <Menu.Item style={{ color:'#000' }} key="6" icon={<InfoCircleOutlined />} ><Link to="/aboutUs">About Us</Link></Menu.Item>
+          <Menu.Item style={{ color:'#000' }} key="7" icon={<HeatMapOutlined />} ><Link to="/location">Locate Us</Link></Menu.Item>
+          <Menu.Item style={{ color:'#000' }} key="8" icon={<UnorderedListOutlined />} ><Link to="/tnc">Terms & Conditions</Link></Menu.Item>
+          <Menu.Item style={{ color:'#000' }} key="9" icon={<ExclamationCircleOutlined />} ><Link to="/privacy">Privacy Policy</Link></Menu.Item>
         </SubMenu>
-        <Menu.Item style={{ color: '#000' }} key="6" icon={<MessageOutlined />}>
+        <Menu.Item style={{ color: '#000' }} key="10" icon={<MessageOutlined />}>
           <Link to="/feedback" style={{  }}>Feedback</Link>
         </Menu.Item>
-        <Menu.Item style={{ color: '#000' }} key="7" icon={<LogoutOutlined />}>
-          <Link to="/" style={{  }}>Logout</Link>
+        <Menu.Item style={{ color: '#000' }} icon={<LogoutOutlined />}>
+          <Link to="#" style={{  }}>Logout</Link>
         </Menu.Item>
         {/* <Menu.Item key="9" icon={<FileOutlined />} /> */}
       </Menu>
