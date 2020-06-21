@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -7,7 +9,7 @@ import TextField from '@material-ui/core/TextField';
 //import Checkbox from '@material-ui/core/Checkbox';
 //import Link from '@material-ui/core/Link';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 //import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -17,6 +19,7 @@ import Container from '@material-ui/core/Container';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import { registerNewUser } from './redux/actions/authActions';
 //import Register from './Register';
 //import Welcome from './welcome';
 
@@ -68,8 +71,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Register() {
+function Register({ history, auth, registerNewUser }) {
+  const [ user, setUser ] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    location: ''
+  })
   const classes = useStyles();
+
+  useEffect(() => {
+    const { isAuthenticated } = auth;
+    if(isAuthenticated) {
+      history.push('/wash')
+    } else {
+      var url = new URL(window.location.href);
+      var newNumber = url.searchParams.get("newUser");
+      if(newNumber) {
+        setUser({...user, phone: newNumber});
+      }
+    }
+  }, [])
 
   const locations = [
     { title: 'Bangalore'},
@@ -78,6 +100,11 @@ export default function Register() {
     { title: 'Hyderabad' },
     { title: 'Mumbai' },
   ];
+
+  const onSubmit = e => {
+    e.preventDefault();
+    registerNewUser(user, history)
+  }
 
   return (
     // <div className={classes.image}>
@@ -94,17 +121,19 @@ export default function Register() {
         <Typography component="h1" variant="h5">
           Sign Up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={onSubmit} autoComplete="off">
             <Grid container spacing={2}>            
               <Grid item xs={12} sm={6}>
                 <TextField
-                  autoComplete="fname"
+                  // autoComplete="fname"
                   name="name"
                   variant="outlined"
                   required
                   fullWidth
                   id="name"
                   label="Name"
+                  onChange={e => setUser({...user, name: e.target.value})}
+                  value={user.name}
                   autoFocus
                 />
               </Grid>
@@ -116,7 +145,9 @@ export default function Register() {
                   id="phone"
                   label="Mobile Number"
                   name="phone"
-                  autoComplete="pnum"
+                  onChange={e => setUser({...user, phone: e.target.value})}
+                  value={user.phone}
+                  // autoComplete="pnum"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -127,7 +158,9 @@ export default function Register() {
                   id="email"
                   label="Email Address"
                   name="email"
-                  autoComplete="email"
+                  onChange={e => setUser({...user, email: e.target.value})}
+                  value={user.email}
+                  // autoComplete="email"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -140,7 +173,7 @@ export default function Register() {
                 />
               </Grid>                        
             </Grid>
-            <Link to="/wash" style={{ textDecoration: 'none' }}>
+            {/* <Link to="/wash" style={{ textDecoration: 'none' }}> */}
               <Button
                 type="submit"
                 fullWidth
@@ -150,7 +183,7 @@ export default function Register() {
               >
                 Sign Up
               </Button>
-            </Link>
+            {/* </Link> */}
           
         </form>
       </div>
@@ -162,3 +195,15 @@ export default function Register() {
     // </div>
   );
 }
+
+Register.propTypes = {
+  registerNewUser: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+const mapDispatchToProps = { registerNewUser }
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Register))

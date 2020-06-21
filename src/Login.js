@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -18,6 +20,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Register from './Register';
 //import Welcome from './welcome';
+import { loginUser } from './redux/actions/authActions';
 
 const useStyles = makeStyles((theme) => ({
   image: {
@@ -67,8 +70,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login() {
+function Login({ history, newUser, loginUser }) {
+  const [phone, setPhone] = useState({
+    phoneNumber: ''
+  });
+
   const classes = useStyles();
+
+  const onSubmit = e => {
+    e.preventDefault();
+    loginUser(phone.phoneNumber, history)
+  }
 
   return (
     // <div className={classes.image}>
@@ -85,22 +97,22 @@ export default function Login() {
         <Typography component="h1" variant="h5">
           Sign In
         </Typography>
-        <form className={classes.form} noValidate>
-            <Grid container spacing={2}>            
-                <Grid item xs={12}>
-                <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="number"
-                    label="Mobile Number"
-                    name="phone"
-                    autoComplete="phone"
-                    autoFocus                    
-                />
-                </Grid>                        
-            </Grid>
-          <Link to="/Register" style={{ textDecoration: 'none' }}>
+        <form className={classes.form} noValidate onSubmit={onSubmit} autoComplete="off">
+          <Grid container spacing={2}>            
+            <Grid item xs={12}>
+              <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="number"
+                  label="Mobile Number"
+                  onChange={e => setPhone({phoneNumber: e.target.value})}
+                  name="phone"
+                  autoFocus                    
+              />
+            </Grid>                        
+          </Grid>
+          {/* <Link to="/Register" style={{ textDecoration: 'none' }}> */}
           <Button
             type="submit"
             fullWidth
@@ -110,7 +122,7 @@ export default function Login() {
           >
             Sign In / Sign Up
           </Button>
-          </Link>
+          {/* </Link> */}
           
         </form>
       </div>
@@ -122,3 +134,15 @@ export default function Login() {
     // </div>
   );
 }
+
+Login.propTypes = {
+  loginUser: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+  newUser: state.newUser
+})
+
+const mapDispatchToProps = { loginUser }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

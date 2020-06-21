@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 //import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb } from 'antd';
@@ -20,7 +21,7 @@ import {
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
-const Welcome = () => {
+const Welcome = ({ auth }) => {
 
   const [collapsed, setCollapsed] = useState(false)
 
@@ -52,11 +53,12 @@ const Welcome = () => {
     selectedKey = '10'
   }
 
+  const { user } = auth;
   return (
     
     <Sider className="ant-layout" collapsible collapsed={collapsed} onCollapse={onCollapse} style={{ backgroundColor: '#F7F6F7' }}>
       <div className="logo" style={{ marginLeft: 7, marginBottom: 7 }}> <img src="/images/fab1.png" height="100" width={collapsed ? '65' : '185'} /> </div>
-      {/* <div className="logo" style={{  color: '#000', textAlign: 'center', padding: 19 }}>Welcome Pavan</div> */}
+      <div className="logo" style={{  color: '#000', textAlign: 'center', padding: 19 }}>Welcome {user.name}</div>
       <Menu /* className="ant-menu-item" */ style={{ backgroundColor: '#F7F6F7' }} theme="dark" defaultSelectedKeys={[selectedKey]} mode="inline">
       
         <Menu.Item style={{ color: '#000' }} key="1" icon={<ClockCircleOutlined />}>
@@ -93,5 +95,9 @@ const Welcome = () => {
   );
 };
 
+const matStateToProps = state => ({
+  auth: state.auth
+})
+
 //ReactDOM.render(<Welcome />, document.getElementById('container'));
-export default Welcome;
+export default connect(matStateToProps)(Welcome);

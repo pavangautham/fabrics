@@ -10,7 +10,6 @@ import Tnc from './Components/tnc/tnc';
 import Privacy from './Components/privacy/Privacy';
 
 const Routes = ({ match }) => {
-    console.log(match)
     return (
         <Switch>
             <Redirect exact from={`${match.url}`} to={`${match.url}login`} />
