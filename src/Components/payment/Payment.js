@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Card, Checkbox } from 'antd';
 
 const gridStyle = {
@@ -10,7 +10,32 @@ const gridStyle = {
   margin:20
 };
 
-function Payment() {
+class Payment extends Component  {
+
+  constructor() {
+    super();
+    this.state = {
+      total: 0,
+    };
+
+    this.calculateTotal = this.calculateTotal.bind(this);
+  }
+
+  calculateTotal(input, checked) {
+    let { total } = this.state;
+
+    if (checked) {
+      total += input;
+    } else {
+      total -= input;
+    }
+
+    this.setState({
+      total
+    });
+  }
+
+  render() {
   return (
     <div>
       <h2 style={{ textAlign: 'center', textDecoration: 'underline', fontSize: 30 }}>ONLINE PAYMENTS</h2>
@@ -21,7 +46,7 @@ function Payment() {
           <a style={{ color: 'black', textDecoration: 'none' }}>
           <Card.Grid style={gridStyle}>
             {/* <Checkbox key="0" >Hello</Checkbox> */}
-            <Checkbox value={148}>
+            <Checkbox calculateTotal={this.calculateTotal} value={148}>
             <div style={{ display: 'flex' }}>
               <p>Order number</p> <p style={{ paddingLeft: 83 }}>MSPEC000000041</p>
             </div>
@@ -51,7 +76,7 @@ function Payment() {
             <a style={{ color: 'black', textDecoration: 'none' }}>
             <Card.Grid style={gridStyle}>
               {/* <Checkbox key="1"></Checkbox> */}
-              <Checkbox value={158}>
+              <Checkbox calculateTotal={this.calculateTotal} value={158}>
               <div style={{ display: 'flex' }}>
                 <p>Order number</p> <p style={{ paddingLeft: 83 }}>MSPEC000000041</p>
               </div>
@@ -69,7 +94,7 @@ function Payment() {
                 <p>Paid Amount</p> <p style={{ paddingLeft: 95 }}>0</p>
               </div>
               <div style={{ display: 'flex' }}>
-                <p>Payable Amount</p> <p style={{ paddingLeft: 74 }}>148.00</p>
+                <p>Payable Amount</p> <p style={{ paddingLeft: 74 }}>158.00</p>
               </div>
               <div style={{ display: 'flex' }}>
                 <p>Download</p> <p style={{ paddingLeft: 114 }}><a>Click here to download monthly invoice</a></p>
@@ -79,7 +104,7 @@ function Payment() {
             </a>
             <a style={{ color: 'black', textDecoration: 'none' }}>
             <Card.Grid style={gridStyle}>
-              <Checkbox value={168}>
+              <Checkbox calculateTotal={this.calculateTotal} value={168}>
               <div style={{ display: 'flex' }}>
                 <p>Order number</p> <p style={{ paddingLeft: 83 }}>MSPEC000000041</p>
               </div>
@@ -97,7 +122,7 @@ function Payment() {
                 <p>Paid Amount</p> <p style={{ paddingLeft: 95 }}>0</p>
               </div>
               <div style={{ display: 'flex' }}>
-                <p>Payable Amount</p> <p style={{ paddingLeft: 74 }}>148.00</p>
+                <p>Payable Amount</p> <p style={{ paddingLeft: 74 }}>168.00</p>
               </div>
               <div style={{ display: 'flex' }}>
                 <p>Download</p> <p style={{ paddingLeft: 114 }}><a>Click here to download monthly invoice</a></p>
@@ -107,7 +132,7 @@ function Payment() {
             </a>
             <a style={{ color: 'black', textDecoration: 'none' }}>
             <Card.Grid style={gridStyle}>
-              <Checkbox value={178}>
+              <Checkbox calculateTotal={this.calculateTotal} value={178}>
               <div style={{ display: 'flex' }}>
                 <p>Order number</p> <p style={{ paddingLeft: 83 }}>MSPEC000000041</p>
               </div>
@@ -125,7 +150,7 @@ function Payment() {
                 <p>Paid Amount</p> <p style={{ paddingLeft: 95 }}>0</p>
               </div>
               <div style={{ display: 'flex' }}>
-                <p>Payable Amount</p> <p style={{ paddingLeft: 74 }}>148.00</p>
+                <p>Payable Amount</p> <p style={{ paddingLeft: 74 }}>178.00</p>
               </div>
               <div style={{ display: 'flex' }}>
                 <p>Download</p> <p style={{ paddingLeft: 114 }}><a>Click here to download monthly invoice</a></p>
@@ -135,7 +160,7 @@ function Payment() {
             </a>
             <a style={{ color: 'black', textDecoration: 'none' }}>
             <Card.Grid style={gridStyle}>
-              <Checkbox value={188}>
+              <Checkbox calculateTotal={this.calculateTotal} value={188}>
               <div style={{ display: 'flex' }}>
                 <p>Order number</p> <p style={{ paddingLeft: 83 }}>MSPEC000000041</p>
               </div>
@@ -153,7 +178,7 @@ function Payment() {
                 <p>Paid Amount</p> <p style={{ paddingLeft: 95 }}>0</p>
               </div>
               <div style={{ display: 'flex' }}>
-                <p>Payable Amount</p> <p style={{ paddingLeft: 74 }}>148.00</p>
+                <p>Payable Amount</p> <p style={{ paddingLeft: 74 }}>188.00</p>
               </div>
               <div style={{ display: 'flex' }}>
                 <p>Download</p> <p style={{ paddingLeft: 114 }}><a>Click here to download monthly invoice</a></p>
@@ -163,7 +188,7 @@ function Payment() {
             </a>
             <a style={{ color: 'black', textDecoration: 'none' }}>         
             <Card.Grid style={gridStyle}>
-              <Checkbox value={198}>
+              <Checkbox calculateTotal={this.calculateTotal} value={198}>
               <div style={{ display: 'flex' }}>
                 <p>Order number</p> <p style={{ paddingLeft: 83 }}>MSPEC000000041</p>
               </div>
@@ -181,7 +206,7 @@ function Payment() {
                 <p>Paid Amount</p> <p style={{ paddingLeft: 95 }}>0</p>
               </div>
               <div style={{ display: 'flex' }}>
-                <p>Payable Amount</p> <p style={{ paddingLeft: 74 }}>148.00</p>
+                <p>Payable Amount</p> <p style={{ paddingLeft: 74 }}>198.00</p>
               </div>
               <div style={{ display: 'flex' }}>
                 <p>Download</p> <p style={{ paddingLeft: 114 }}><a>Click here to download monthly invoice</a></p>
@@ -191,7 +216,7 @@ function Payment() {
             </a> 
             <a style={{ color: 'black', textDecoration: 'none' }}>          
             <Card.Grid style={gridStyle}>
-              <Checkbox value={138}>
+              <Checkbox calculateTotal={this.calculateTotal}  value={138}>
               <div style={{ display: 'flex' }}>
                 <p>Order number</p> <p style={{ paddingLeft: 83 }}>MSPEC000000041</p>
               </div>
@@ -209,7 +234,7 @@ function Payment() {
                 <p>Paid Amount</p> <p style={{ paddingLeft: 95 }}>0</p>
               </div>
               <div style={{ display: 'flex' }}>
-                <p>Payable Amount</p> <p style={{ paddingLeft: 74 }}>148.00</p>
+                <p>Payable Amount</p> <p style={{ paddingLeft: 74 }}>138.00</p>
               </div>
               <div style={{ display: 'flex' }}>
                 <p>Download</p> <p style={{ paddingLeft: 114 }}><a>Click here to download monthly invoice</a></p>
@@ -219,7 +244,7 @@ function Payment() {
             </a>  
             <a style={{ color: 'black', textDecoration: 'none' }}>        
             <Card.Grid style={gridStyle}>
-              <Checkbox value={128}>
+              <Checkbox calculateTotal={this.calculateTotal} value={128}>
               <div style={{ display: 'flex' }}>
                 <p>Order number</p> <p style={{ paddingLeft: 83 }}>MSPEC000000041</p>
               </div>
@@ -237,7 +262,7 @@ function Payment() {
                 <p>Paid Amount</p> <p style={{ paddingLeft: 95 }}>0</p>
               </div>
               <div style={{ display: 'flex' }}>
-                <p>Payable Amount</p> <p style={{ paddingLeft: 74 }}>148.00</p>
+                <p>Payable Amount</p> <p style={{ paddingLeft: 74 }}>128.00</p>
               </div>
               <div style={{ display: 'flex' }}>
                 <p>Download</p> <p style={{ paddingLeft: 114 }}><a>Click here to download monthly invoice</a></p>
@@ -250,7 +275,7 @@ function Payment() {
       </div>
       <div>
         <Card style={{ width: '100%', background: '#F7F6F7' }}>
-          <p>Grand Total</p>          
+          <p>Grand Total : {this.state.total}</p>          
         </Card>
       </div>
       {/* <div className="site-card-wrapper">
@@ -274,6 +299,7 @@ function Payment() {
       </div> */}
     </div> 
   );
+  };
 }
 
 export default Payment;

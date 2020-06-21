@@ -55,9 +55,9 @@ const Welcome = () => {
   return (
     
     <Sider className="ant-layout" collapsible collapsed={collapsed} onCollapse={onCollapse} style={{ backgroundColor: '#F7F6F7' }}>
-      <div className="logo" style={{ marginLeft: 7 }}> <img src="/images/fab1.png" height="50" width={collapsed ? '65' : '185'} /> </div>
+      <div className="logo" style={{ marginLeft: 7, marginBottom: 7 }}> <img src="/images/fab1.png" height="100" width={collapsed ? '65' : '185'} /> </div>
       {/* <div className="logo" style={{  color: '#000', textAlign: 'center', padding: 19 }}>Welcome Pavan</div> */}
-      <Menu /* className="ant-menu-item" */ style={{ backgroundColor: '#F7F6F7' }} theme="light" defaultSelectedKeys={[selectedKey]} mode="inline">
+      <Menu /* className="ant-menu-item" */ style={{ backgroundColor: '#F7F6F7' }} theme="dark" defaultSelectedKeys={[selectedKey]} mode="inline">
       
         <Menu.Item style={{ color: '#000' }} key="1" icon={<ClockCircleOutlined />}>
           <Link to="/wash" style={{  }}>Schedule Wash</Link>              
